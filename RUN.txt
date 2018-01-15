@@ -1,0 +1,29 @@
+[Dependency]
+jdk 1.8, make sure the JAVA_HOME environment variable is correctly set.
+
+[Usage]
+To enable bug detection of ConFu, we first perform the follows:
+$ cd confu-master
+$ source msetup
+
+To analyze applications, run the following commands:
+[Analyze account.Account]
+$ cd confu-master
+$ ./date-script/confu -classpath=../examples/test/ -tool=FT2 -noxml account.Account
+$ ./date-script/confu -fuzz 10 -classpath=../examples/test/ -tool=PCT:FT2 -noxml account.Account
+
+
+[Analyze deadlock.TestDeadlock8]
+$ cd confu-master
+$ ./date-script/confu -classpath=../examples/test/ -tool=DL -noxml deadlock.TestDeadlock8
+
+
+[Analyze tomcat]
+$ cd examples/tomcat
+$ ./TEST -maxTid=100 -tool=FT2 -noxml
+$ ./TEST -maxTid=100 -tool=NPD -noxml
+
+
+[Analyze node-server-gopush (springboot App)]
+$ cd confu-master
+$ ./date-script/confu -classpath=../examples/go-push-node-server-1.0-SNAPSHOT.jar -tool=FT2 -classes="+.*stores.*" -classes="-.*" -noxml -quiet org.springframework.boot.loader.JarLauncher

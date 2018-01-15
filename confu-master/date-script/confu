@@ -1,0 +1,49 @@
+#!/bin/bash
+FIRST_OPT=$1
+
+RR_CMD=rrrun
+
+#$RR_CMD $*
+
+#echo $FUZZ_OPT $FUZZ_NUM $OTHER 
+#$RR_CMD $OTHER
+
+
+show_help() {
+  echo "********************** Tsmart DATE-ConFu V0.2 **********************"
+  echo "Usage: "
+  echo "       ./confu [OPTIONS] MyClass.class"
+  echo ""
+  echo "-help        Show this message"
+  echo "-version     Show the version information"
+  echo "-fuzz NUM    Enable fuzzing mode, iterate NUM times"
+  echo "-tool=A:B    Enable analysis toolchain with A and B"
+  echo "-classpath   Specify the classpath"
+  echo "-classes     Specify white-list classes which analysis will ignore"
+  echo "-noxml       Do not generate XML report"
+  echo "-quiet       No logging messages"
+  echo "-stacks      Show call stacks in error traces"
+}
+
+
+
+if [ ${FIRST_OPT} == "-help" ]; then
+  show_help
+elif [ ${FIRST_OPT} == "-version" ]; then
+  echo "Tsmart DATE-ConFu V0.2 20170918"
+  echo "Developed by DATE-group@Tsinghua University, Beijing, China"
+elif [ ${FIRST_OPT} == "-fuzz" ]; then  
+  FUZZ_NUM=$2
+  for ((i = 0; i < ${FUZZ_NUM}; i++)) do
+    RR_OPTS=${*:3}
+    echo "++++ date-confu fuzzing " $i
+    $RR_CMD $RR_OPTS
+    echo "++++ date-confu fuzzing " $i "ends"
+    echo " "
+  done
+else
+  RR_OPTS=$*
+  $RR_CMD $RR_OPTS
+fi
+
+

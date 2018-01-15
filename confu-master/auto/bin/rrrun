@@ -1,0 +1,4 @@
+#!/bin/bash
+           java -version 
+                          echo 
+           java -javaagent:$RR_HOME/build/jar/rragent.jar $JVM_ARGS -Xbootclasspath/p:$RR_HOME/classes:$RR_HOME/jars/java-cup-11a.jar: rr.RRMain $*

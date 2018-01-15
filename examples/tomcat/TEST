@@ -1,0 +1,16 @@
+TARGET="Main"
+PROGRAM_ARGS=""
+
+echo "PREP"
+cd scratch
+unzip -o tomcat.zip
+cd ..
+cp props/catalina.properties scratch/catalina.properties
+
+BAD_FIELDS="-fields=-.*javax/servlet/GenericServlet.config.* -fields=-.*javax/servlet/jsp/tagext/TagSupport.* "
+
+SPECIAL=" ${BAD_FIELDS}  -infThreads=3 -maxTid=$[AVAIL_PROCS * 5] -multiLoader "
+
+echo rrrun ${SPECIAL} -classpath=original.jar ${TEST_ARGS} $* ${TARGET} ${PROGRAM_ARGS}
+
+rrrun ${SPECIAL} -classpath=original.jar ${TEST_ARGS} $* ${TARGET} ${PROGRAM_ARGS}

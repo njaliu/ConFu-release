@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="api.txt" kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="build/jar/ClassLoaderWithListener.jar" sourcepath="src/"/>
+	<classpathentry kind="src" path="auto"/>
+	<classpathentry exported="true" kind="lib" path="jars/java-cup-11a.jar"/>
+	<classpathentry exported="true" kind="lib" path="jars/JFlex.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/aliu/Downloads/jdk1.8.0_73/lib/tools.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>
