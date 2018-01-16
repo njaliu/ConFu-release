@@ -1,6 +1,7 @@
 # ConFu: Hunting Deep Concurrency Bugs in Your Applications
 
 ## Directory Hierarchy
+* RUN.txt: instructions to run ConFu
 * confu-master: the ConFu tool
 * examples: applications to be analyzed
     + account: a banking application
