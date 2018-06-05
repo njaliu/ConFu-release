@@ -31,4 +31,6 @@ $ ./date-script/confu -classpath=../examples/go-push-node-server-1.0-SNAPSHOT.ja
 [Analyze web-resources-angular-1.0.0-SNAPSHOT (springboot App)]
 $ cd confu-master
 $ ./date-script/confu -classpath=../examples/web-resources-angular-1.0.0-SNAPSHOT.jar -tool=FT2 -classes="+.*demo.*" -classes="-.*" -noxml -quiet org.springframework.boot.loader.JarLauncher
+
+$ curl -H "Content-Type:application/json" -X POST --data '{"text" : "hello"}' http://localhost:8080/api/todos
  
