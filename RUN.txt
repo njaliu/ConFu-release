@@ -27,3 +27,8 @@ $ ./TEST -maxTid=100 -tool=NPD -noxml
 [Analyze node-server-gopush (springboot App)]
 $ cd confu-master
 $ ./date-script/confu -classpath=../examples/go-push-node-server-1.0-SNAPSHOT.jar -tool=FT2 -classes="+.*stores.*" -classes="-.*" -noxml -quiet org.springframework.boot.loader.JarLauncher
+
+[Analyze web-resources-angular-1.0.0-SNAPSHOT (springboot App)]
+$ cd confu-master
+$ ./date-script/confu -classpath=../examples/web-resources-angular-1.0.0-SNAPSHOT.jar -tool=FT2 -classes="+.*demo.*" -classes="-.*" -noxml -quiet org.springframework.boot.loader.JarLauncher
+ 

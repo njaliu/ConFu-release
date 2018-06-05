@@ -8,3 +8,4 @@
     + deadlock: program with deadlocks
     + tomcat: the Tomcat server
     + go-push-node-server-1.0-SNAPSHOT: a springboot microservice
+    + web-resources-angular-1.0.0-SNAPSHOT.jar: a springboot microservice
